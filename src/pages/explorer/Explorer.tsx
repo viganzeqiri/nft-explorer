@@ -1,9 +1,14 @@
 import { FunctionComponent } from "react";
+import { NftExplorer, PageContainer } from "components";
 
 interface IExplorerProps {}
 
 const Explorer: FunctionComponent<IExplorerProps> = () => {
-  return <div>Explorer</div>;
+  return (
+    <PageContainer>
+      <NftExplorer />
+    </PageContainer>
+  );
 };
 
 export { Explorer };
