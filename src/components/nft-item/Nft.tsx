@@ -1,18 +1,21 @@
-import { Badge, Box, Image } from "@chakra-ui/react";
-
+import { Box, Image, Text } from "@chakra-ui/react";
 import { type NftProperties } from "types/nft";
 
-function Nft({
-  name,
-  image_url,
-  color,
-  is_fancy,
-  is_exclusive,
-  is_special_edition,
-}: NftProperties) {
+export interface INftProps extends NftProperties {}
+
+function Nft({ name, image_url }: INftProps) {
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={image_url} alt={name} />
+      <Image
+        transition="transform .2s"
+        _hover={{ transform: "scale(1.05)" }}
+        src={image_url}
+        alt={name}
+      />
+
+      <Box p={4} borderTop="1px solid" borderColor="brand.border">
+        <Text fontWeight="bold">{name}</Text>
+      </Box>
     </Box>
   );
 }

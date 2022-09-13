@@ -10,7 +10,7 @@ const PageContainer: FunctionComponent<IPageContainerProps> = ({
   children,
 }) => {
   return (
-    <Container border="1px solid red" py={4} maxW={["90%", "container.xl"]}>
+    <Container py={4} maxW={["90%", "container.2xl"]}>
       {children}
     </Container>
   );
