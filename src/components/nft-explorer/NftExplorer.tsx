@@ -1,32 +1,31 @@
 import { Box, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import { NftList } from "components/nft-list/NftList";
 import { useNfts } from "lib/hooks";
+import { makeTabs } from "utils/makeTabs";
 
 function NftExplorer() {
-  const { data, isLoading } = useNfts();
+  const { data } = useNfts();
   const nfts = data?.greatValues;
 
   if (!nfts?.length) return null;
 
+  const tabs = makeTabs(nfts);
+
   return (
     <Box>
-      <Tabs isFitted colorScheme="brand.primary" color="brand.primary">
+      <Tabs isLazy colorScheme="brand.primary" color="brand.primary">
         <TabList>
-          <Tab>Tab one</Tab>
-          <Tab>Tab two</Tab>
-          <Tab>Tab three</Tab>
+          {tabs.map(({ name, key }) => (
+            <Tab key={key}>{name}</Tab>
+          ))}
         </TabList>
 
         <TabPanels>
-          <TabPanel>
-            <NftList data={nfts} />
-          </TabPanel>
-          <TabPanel>
-            <NftList data={nfts} />
-          </TabPanel>
-          <TabPanel>
-            <NftList data={nfts} />
-          </TabPanel>
+          {tabs.map((tab) => (
+            <TabPanel key={tab.key}>
+              <NftList data={nfts} filtringKey={tab.key} />
+            </TabPanel>
+          ))}
         </TabPanels>
       </Tabs>
     </Box>
