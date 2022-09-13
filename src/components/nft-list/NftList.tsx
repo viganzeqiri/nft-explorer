@@ -17,8 +17,6 @@ function NftList({ data, filtringKey }: INftListProps) {
         );
       });
 
-  console.log({ filtringKey, data, filteredData });
-
   return (
     <Grid templateColumns="repeat(4, 1fr)" gap={8} py={8}>
       {filteredData.map((nft) => (

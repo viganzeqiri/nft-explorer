@@ -7,8 +7,8 @@ function Nft({ name, image_url }: INftProps) {
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image
-        transition="transform .2s"
-        _hover={{ transform: "scale(1.05)" }}
+        transition="transform .4s"
+        _hover={{ transform: "scale(1.05)", cursor: "pointer" }}
         src={image_url}
         alt={name}
       />
