@@ -105,3 +105,10 @@ export type NftProperties = {
   offer: {};
   image_url_kitty_items: string;
 };
+
+export type CryptoKittiesData = {
+  fancies: any[];
+  greatValues: NftProperties[];
+  limit: number;
+  offset: number;
+};
