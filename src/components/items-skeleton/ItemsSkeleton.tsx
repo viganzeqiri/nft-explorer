@@ -21,7 +21,7 @@ function ItemsSkeleton({ itemsNumber = 20 }: IItemsSkeletonProps) {
       >
         {[...Array.from({ length: itemsNumber }, (_, i) => i)].map((item) => (
           <GridItem key={item}>
-            <Skeleton height="320px" borderRadius="lg" />
+            <Skeleton height="320px" borderRadius="lg" data-testid="skeleton" />
           </GridItem>
         ))}
       </Grid>

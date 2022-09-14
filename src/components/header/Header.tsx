@@ -39,6 +39,7 @@ function Header() {
               colorScheme="whiteAlpha"
               onChange={toggleColorMode}
               isChecked={isDarkMode}
+              data-testid="toggle-button"
             />
             <MoonIcon color={color} w={6} h={6} />
           </Flex>
