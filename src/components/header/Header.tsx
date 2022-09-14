@@ -36,7 +36,7 @@ function Header() {
           >
             <SunIcon color={color} w={6} h={6} />
             <Switch
-              colorScheme="yellow"
+              colorScheme="whiteAlpha"
               onChange={toggleColorMode}
               isChecked={isDarkMode}
             />
