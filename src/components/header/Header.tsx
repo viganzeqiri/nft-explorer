@@ -6,8 +6,10 @@ import { PageContainer } from "components/page-container";
 function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const color = colorMode === "dark" ? "brand.secondary" : "brand.text";
+  const isDarkMode = colorMode === "dark";
+  const color = isDarkMode ? "brand.secondary" : "brand.text";
 
+  console.log({ isDarkMode });
   return (
     <chakra.header
       borderBottom="1px solid"
@@ -34,7 +36,11 @@ function Header() {
             mt={[4, 0]}
           >
             <SunIcon color={color} w={6} h={6} />
-            <Switch colorScheme="yellow" onChange={toggleColorMode} />
+            <Switch
+              colorScheme="yellow"
+              onChange={toggleColorMode}
+              isChecked={isDarkMode}
+            />
             <MoonIcon color={color} w={6} h={6} />
           </Flex>
         </Flex>
