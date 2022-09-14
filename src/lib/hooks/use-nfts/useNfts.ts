@@ -8,12 +8,10 @@ interface IUseNftsProps {
 }
 
 function useNfts({ offset }: IUseNftsProps) {
-  const data = useQuery<CryptoKittiesData, Error>(
+  return useQuery<CryptoKittiesData, Error>(
     [QUERY_KEYS.NFTS_LIST, offset],
     () => fetchNfts(offset)
   );
-
-  return data;
 }
 
 async function fetchNfts(offset = 0, limit = 12) {

@@ -6,6 +6,8 @@ import {
   TabPanels,
   TabPanel,
   useColorMode,
+  Heading,
+  Center,
 } from "@chakra-ui/react";
 import { ItemsSkeleton } from "components/items-skeleton";
 import { NftList } from "components/nft-list/NftList";
@@ -18,14 +20,22 @@ interface INftExplorerProps {
 
 function NftExplorer({ offset }: INftExplorerProps) {
   const { colorMode } = useColorMode();
-  const { data, isLoading } = useNfts({ offset });
-  const nfts = data?.greatValues;
+  const { data, isLoading, isError } = useNfts({ offset });
+  const nfts = data?.greatValues || [];
 
   if (isLoading) {
     return <ItemsSkeleton />;
   }
 
-  if (!nfts?.length) return null;
+  if (isError) {
+    return (
+      <Box minH="80vh">
+        <Center mt={20}>
+          <Heading>An error has occurred</Heading>
+        </Center>
+      </Box>
+    );
+  }
 
   const tabs = makeTabs(nfts);
 
@@ -35,7 +45,7 @@ function NftExplorer({ offset }: INftExplorerProps) {
   return (
     <Box minH="80vh">
       <Tabs isLazy colorScheme={color} color={color}>
-        <TabList flexWrap="wrap">
+        <TabList flexWrap="wrap" data-testid="tab-list">
           {tabs.map(({ name, key }) => (
             <Tab key={key}>{name}</Tab>
           ))}
