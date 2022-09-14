@@ -1,6 +1,6 @@
 import { Heading, chakra, Flex, Switch } from "@chakra-ui/react";
-import { PageContainer } from "components/page-container";
 import { Link as RouterLink } from "react-router-dom";
+import { PageContainer } from "components/page-container";
 
 function Header() {
   return (
