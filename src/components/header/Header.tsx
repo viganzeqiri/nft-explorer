@@ -7,9 +7,8 @@ function Header() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const isDarkMode = colorMode === "dark";
-  const color = isDarkMode ? "brand.secondary" : "brand.text";
+  const color = isDarkMode ? "brand.secondary" : "brand.primary";
 
-  console.log({ isDarkMode });
   return (
     <chakra.header
       borderBottom="1px solid"
