@@ -3,20 +3,24 @@ import { QUERY_KEYS } from "lib/api/queryKeys";
 import { ENDPOINTS } from "lib/api/endpoints";
 import { CryptoKittiesData } from "types/nft";
 
-async function fetchNfts(_: unknown, offset = 0, limit = 10) {
+interface IUseNftsProps {
+  offset: number;
+}
+
+function useNfts({ offset }: IUseNftsProps) {
+  const data = useQuery<CryptoKittiesData, Error>(
+    [QUERY_KEYS.NFTS_LIST, offset],
+    () => fetchNfts(offset)
+  );
+
+  return data;
+}
+
+async function fetchNfts(offset = 0, limit = 12) {
   const result = await fetch(
     `${ENDPOINTS.CRYPTO_KITTIES}?offset=${offset}&limit=${limit}`
   );
   return result.json();
-}
-
-function useNfts() {
-  const data = useQuery<CryptoKittiesData, Error>(
-    [QUERY_KEYS.NFTS_LIST],
-    fetchNfts
-  );
-
-  return data;
 }
 
 export { useNfts };

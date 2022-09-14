@@ -4,3 +4,4 @@ export * from "./nft-explorer";
 export * from "./nft-item";
 export * from "./nft-list";
 export * from "./page-container";
+export * from "./pagination";

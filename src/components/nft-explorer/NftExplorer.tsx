@@ -4,8 +4,12 @@ import { NftList } from "components/nft-list/NftList";
 import { useNfts } from "lib/hooks";
 import { makeTabs } from "utils/makeTabs";
 
-function NftExplorer() {
-  const { data, isLoading } = useNfts();
+interface INftExplorerProps {
+  offset: number;
+}
+
+function NftExplorer({ offset }: INftExplorerProps) {
+  const { data, isLoading } = useNfts({ offset });
   const nfts = data?.greatValues;
 
   if (isLoading) {
@@ -17,7 +21,7 @@ function NftExplorer() {
   const tabs = makeTabs(nfts);
 
   return (
-    <Box>
+    <Box minH="80vh">
       <Tabs isLazy colorScheme="brand.primary" color="brand.primary">
         <TabList>
           {tabs.map(({ name, key }) => (
