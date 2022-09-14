@@ -18,7 +18,16 @@ function NftList({ data, filtringKey }: INftListProps) {
       });
 
   return (
-    <Grid templateColumns="repeat(4, 1fr)" gap={8} py={8}>
+    <Grid
+      templateColumns={[
+        "repeat(1, 1fr)",
+        "repeat(2, 1fr)",
+        "repeat(3, 1fr)",
+        "repeat(4, 1fr)",
+      ]}
+      gap={8}
+      py={8}
+    >
       {filteredData.map((nft) => (
         <GridItem key={nft.id}>
           <Nft {...nft} />

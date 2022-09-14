@@ -23,7 +23,7 @@ function NftExplorer({ offset }: INftExplorerProps) {
   return (
     <Box minH="80vh">
       <Tabs isLazy colorScheme="brand.primary" color="brand.primary">
-        <TabList>
+        <TabList flexWrap="wrap">
           {tabs.map(({ name, key }) => (
             <Tab key={key}>{name}</Tab>
           ))}
@@ -31,7 +31,7 @@ function NftExplorer({ offset }: INftExplorerProps) {
 
         <TabPanels>
           {tabs.map((tab) => (
-            <TabPanel key={tab.key}>
+            <TabPanel key={tab.key} p={0}>
               <NftList data={nfts} filtringKey={tab.key} />
             </TabPanel>
           ))}

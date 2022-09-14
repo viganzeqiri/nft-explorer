@@ -5,7 +5,13 @@ export interface INftProps extends NftProperties {}
 
 function Nft({ name, image_url }: INftProps) {
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box
+      maxW="sm"
+      bg="white"
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+    >
       <Image
         transition="transform .4s"
         _hover={{ transform: "scale(1.05)", cursor: "pointer" }}
@@ -13,7 +19,12 @@ function Nft({ name, image_url }: INftProps) {
         alt={name}
       />
 
-      <Box p={4} borderTop="1px solid" borderColor="brand.border">
+      <Box
+        p={4}
+        bg="brand.secondary"
+        borderTop="1px solid"
+        borderColor="brand.border"
+      >
         <Text fontWeight="bold">{name}</Text>
       </Box>
     </Box>
