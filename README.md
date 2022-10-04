@@ -1,4 +1,4 @@
-# Getting Started with Gelato's NFT explorer
+# Getting Started with NFT explorer
 
 ## Available Scripts
 
